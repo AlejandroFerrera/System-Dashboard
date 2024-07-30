@@ -13,7 +13,7 @@ if [ "$(docker ps -a -q -f name=$CONTAINER_NAME)" ]; then
 fi
 
 echo "Starting a new container..."
-docker run -d --name $CONTAINER_NAME -p 5000:5000 --restart unless-stopped $IMAGE_NAME >/dev/null 2>&1
+docker run -d --name $CONTAINER_NAME -p 8000:8000 --restart unless-stopped $IMAGE_NAME >/dev/null 2>&1
 
 echo "Deploy completed successfully!"
-echo "The application is now running at http://localhost:5000"
+echo "The application is now running at http://localhost:8000"

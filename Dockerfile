@@ -8,8 +8,9 @@ COPY metrics.py metrics.py
 COPY static static
 COPY templates templates
 
+RUN pip install gunicorn
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 5000
+EXPOSE 8000
 
-CMD ["flask", "run", "--host", "0.0.0.0"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:8000"]
