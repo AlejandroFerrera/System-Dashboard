@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="flex items-center justify-center min-h-screen bg-gray-100">
+		<main
+			class="bg-white text-gray-800 p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-4xl mx-auto"
+		>
+			<header class="mb-8 text-center">
+				<h1
+					class="text-3xl font-bold text-primary flex items-center justify-center"
+				>
+					<img
+						src="{{ url_for('static', filename='images/system-dashboard-icon.svg') }}"
+						alt="System Dashboard Icon"
+						class="mr-2 h-6 w-6 text-primary"
+					/>
+					System Dashboard
+				</h1>
+			</header>
+			<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<article
+					class="rounded-lg border bg-card text-card-foreground shadow-sm"
+				>
+					<div class="flex flex-col space-y-1.5 p-6">
+						<h2
+							class="text-2xl font-semibold leading-none tracking-tight text-primary flex items-center"
+						>
+							<img
+								src="{{ url_for('static', filename='images/cpu-usage-icon.svg') }}"
+								alt="CPU Usage Icon"
+								class="mr-2 h-5 w-5 text-primary"
+							/>
+							CPU Usage
+						</h2>
+					</div>
+					<div class="p-6">
+						<div class="grid gap-4">
+							<div class="flex items-center justify-between">
+								<span>Total</span>
+								<span class="font-bold text-primary">75%</span>
+							</div>
+							<div class="grid grid-cols-3 gap-4">
+								<div>
+									<div class="text-sm text-muted-foreground">Core 1</div>
+									<div class="font-bold text-primary">80%</div>
+								</div>
+								<div>
+									<div class="text-sm text-muted-foreground">Core 2</div>
+									<div class="font-bold text-primary">70%</div>
+								</div>
+								<div>
+									<div class="text-sm text-muted-foreground">Core 3</div>
+									<div class="font-bold text-primary">65%</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article
+					class="rounded-lg border bg-card text-card-foreground shadow-sm"
+				>
+					<div class="flex flex-col space-y-1.5 p-6">
+						<h2
+							class="text-2xl font-semibold leading-none tracking-tight text-primary flex items-center"
+						>
+							<img
+								src="{{ url_for('static', filename='images/memory-usage-icon.svg') }}"
+								alt="Memory Usage Icon"
+								class="mr-2 h-6 w-6 text-primary"
+							/>
+							Memory Usage
+						</h2>
+					</div>
+					<div class="p-6">
+						<div class="grid gap-4">
+							<div class="flex items-center justify-between">
+								<span>Total</span>
+								<span class="font-bold text-primary">16GB</span>
+							</div>
+							<div class="flex items-center justify-between">
+								<span>Free</span>
+								<span class="font-bold text-primary">4GB</span>
+							</div>
+							<div class="flex items-center justify-between">
+								<span>Available</span>
+								<span class="font-bold text-primary">8GB</span>
+							</div>
+							<div class="flex items-center justify-between">
+								<span>Used</span>
+								<span class="font-bold text-primary">75%</span>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>

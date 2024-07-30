@@ -1,6 +1,7 @@
 from flask import Flask
 from metrics import Metrics
 from flask import jsonify
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -23,3 +24,8 @@ def metrics() -> dict:
             "memory_info": memory_info,
         }
     )
+
+
+@app.route("/", methods=["GET"])
+def home():
+    return render_template("index.html")
