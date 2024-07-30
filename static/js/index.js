@@ -1,6 +1,6 @@
 async function fetchMetrics() {
 	try {
-		const response = await fetch(metricsUrl);
+		const response = await fetch(metricsUrl); //The URL is defined in the HTML template
 		if (!response.ok) {
 			throw new Error('Network response was not ok');
 		}
@@ -33,16 +33,18 @@ function updateCPUUsageByCore(cpuUsageByCore) {
 }
 
 function updateMemoryInfo(memoryInfo) {
-	const { total, free, available, percent } = memoryInfo;
+	const { total, free, available, percent, used } = memoryInfo;
 	const totalMemory = (total / (1024 ** 3)).toFixed(2);
 	const freeMemory = (free / (1024 ** 3)).toFixed(2);
 	const availableMemory = (available / (1024 ** 3)).toFixed(2);
+	const usedMemory = (used / (1024 ** 3)).toFixed(2);
 	const usedMemoryPercent = percent.toFixed(2);
 
 	document.getElementById('total-memory').innerText = `${totalMemory}GB`;
 	document.getElementById('free-memory').innerText = `${freeMemory}GB`;
 	document.getElementById('available-memory').innerText = `${availableMemory}GB`;
-	document.getElementById('used-memory').innerText = `${usedMemoryPercent}%`;
+	document.getElementById('used-memory').innerText = `${usedMemory}GB`;
+	document.getElementById('used-memory-percentage').innerText = `${usedMemoryPercent}%`;
 }
 
 async function updateMetrics() {
