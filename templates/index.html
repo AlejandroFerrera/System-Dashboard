@@ -12,6 +12,7 @@
 			<header class="mb-8 text-center">
 				<h1
 					class="text-3xl font-bold text-primary flex items-center justify-center"
+					id="system-dashboard-title"
 				>
 					<img
 						src="{{ url_for('static', filename='images/system-dashboard-icon.svg') }}"
@@ -21,7 +22,14 @@
 					System Dashboard
 				</h1>
 			</header>
-			<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div id="loading" class="text-center">
+				<div class="loader"></div>
+				<p>Loading...</p>
+			</div>
+			<section
+				id="dashboard-content"
+				class="hidden grid grid-cols-1 md:grid-cols-2 gap-6"
+			>
 				<article
 					class="rounded-lg border bg-card text-card-foreground shadow-sm"
 				>
@@ -41,21 +49,12 @@
 						<div class="grid gap-4">
 							<div class="flex items-center justify-between">
 								<span>Total</span>
-								<span class="font-bold text-primary">75%</span>
+								<span id="total-cpu-usage" class="font-bold text-primary"
+									>0%</span
+								>
 							</div>
-							<div class="grid grid-cols-3 gap-4">
-								<div>
-									<div class="text-sm text-muted-foreground">Core 1</div>
-									<div class="font-bold text-primary">80%</div>
-								</div>
-								<div>
-									<div class="text-sm text-muted-foreground">Core 2</div>
-									<div class="font-bold text-primary">70%</div>
-								</div>
-								<div>
-									<div class="text-sm text-muted-foreground">Core 3</div>
-									<div class="font-bold text-primary">65%</div>
-								</div>
+							<div class="grid grid-cols-3 gap-4" id="cores-container">
+								<!-- Dynamic content for CPU cores will be inserted here -->
 							</div>
 						</div>
 					</div>
@@ -79,24 +78,32 @@
 						<div class="grid gap-4">
 							<div class="flex items-center justify-between">
 								<span>Total</span>
-								<span class="font-bold text-primary">16GB</span>
+								<span id="total-memory" class="font-bold text-primary"
+									>0GB</span
+								>
 							</div>
 							<div class="flex items-center justify-between">
 								<span>Free</span>
-								<span class="font-bold text-primary">4GB</span>
+								<span id="free-memory" class="font-bold text-primary">0GB</span>
 							</div>
 							<div class="flex items-center justify-between">
 								<span>Available</span>
-								<span class="font-bold text-primary">8GB</span>
+								<span id="available-memory" class="font-bold text-primary"
+									>0GB</span
+								>
 							</div>
 							<div class="flex items-center justify-between">
 								<span>Used</span>
-								<span class="font-bold text-primary">75%</span>
+								<span id="used-memory" class="font-bold text-primary">0%</span>
 							</div>
 						</div>
 					</div>
 				</article>
 			</section>
 		</main>
+		<script>
+			const metricsUrl = {{ url_for("metrics") | tojson }};
+		</script>
+		<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 	</body>
 </html>
