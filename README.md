@@ -1,6 +1,12 @@
 
 # System Metrics Dashboard WhereX
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/815ea6de-6cd1-4f44-907c-88c8fffa361d" width="400">
+</p>
+
+
+
 Este proyecto es un dashboard de métricas del sistema construido con Flask, que permite monitorear en tiempo real el uso de CPU y memoria del sistema.
 
 ## Instalación y Ejecución
